@@ -142,11 +142,25 @@
   </head>
   <body>
       <div class="container">
-          <div class= "my-30">
-             <h1 class = "center">Eloquent Relationships</h1>
-          </div>
-      </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="text-center my-3">
+                    Eloquent Relationships
+                </h1>
+                <table class="table table-striped table-bordered table-hover table-responsive text-center">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Phone</th>
+                        </tr>
+                    </thead>
+                    <tbody>
 
+                    </tbody>
+                </table>
+            </div>
+        </div>
+      </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
   </body>
 </html>
