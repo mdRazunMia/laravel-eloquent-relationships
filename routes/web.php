@@ -48,6 +48,9 @@ Route::get('/', function () {
     // $comments = Comment::find(1)->post; // return the post of the comment 1.
     // return $comments;
 
+
+    $comments = Comment::all(); // return all the comments
+
     $posts = Post::with('comments')->get();  //return all the posts with the comments assisoated with the posts.    return $posts;
     // return $posts;
     return view('welcome', compact('users', 'posts'));
