@@ -1,9 +1,10 @@
 <?php
 
-use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Phone;
+use App\Models\Comment;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -52,6 +53,15 @@ Route::get('/', function () {
     $comments = Comment::all(); // return all the comments
 
     $posts = Post::with('comments')->get();  //return all the posts with the comments assisoated with the posts.    return $posts;
-    // return $posts;
-    return view('welcome', compact('users', 'posts'));
+
+
+    //many-to -many relationship
+
+    $postsMany = Post::with('categories')->get();
+
+    $categoryMany = Category::with('posts')->get();
+    // return $categoryMany;
+    // return $postsMany;
+    // return users and posts to the welcome view page
+    return view('welcome', compact('users', 'posts', 'postsMany', 'categoryMany'));
 });

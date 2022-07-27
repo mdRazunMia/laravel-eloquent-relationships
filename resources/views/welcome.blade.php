@@ -190,6 +190,56 @@
                         @endforeach
                     </tbody>
                 </table>
+                 <hr>
+                <h1 class="text-center my-5">Many-to-Many</h1>
+                <table class="table table-striped table-bordered table-hover table-responsive text-center">
+                    <thead>
+                        <tr>
+                            <th>Post</th>
+                            <th>Categories</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($postsMany as $post)
+                            <tr>
+                                <td>{{ $post->title }}</td>
+                                {{-- <td> {{ $post->comments->message }}</td> --}}
+                                <td>
+                                    <ul>
+                                        @foreach ($post->categories as $category)
+                                            <li>{{ $category->name }}</li>
+                                        @endforeach
+                                    </ul>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <hr>
+                                <table class="table table-striped table-bordered table-hover table-responsive text-center">
+                    <thead>
+                        <tr>
+                            <th>Category</th>
+                            <th>Posts</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($categoryMany as $categroy)
+                        {{ $categroy }}
+                            {{-- <tr>
+                                <td>{{ $category->name }}</td>
+                                {{-- <td> {{ $post->comments->message }}</td> --}} --}}
+                                 <td>
+                                    <ul>
+                                        @foreach ($category->posts as $post)
+                                            <li>{{ $post->title }}</li>
+                                        @endforeach
+                                    </ul>
+                                </td>
+                            </tr>  --}}
+                        @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
       </div>
