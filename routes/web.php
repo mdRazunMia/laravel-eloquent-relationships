@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Comment;
+use App\Models\Post;
 use App\Models\User;
 use App\Models\Phone;
 use Illuminate\Support\Facades\Route;
@@ -33,5 +35,20 @@ Route::get('/', function () {
 
     // return $users;
 
-    return view('welcome', compact('users'));
+
+    //one two many relationship
+
+    //post data
+    // $post = Post::find(2);// return post 2 datat.
+    // $post = Post::find(1)->comments;// return all comments of the post 1.
+    // return $post;
+
+    //comments data
+    // $comments = Comment::all(); // return all the comments
+    // $comments = Comment::find(1)->post; // return the post of the comment 1.
+    // return $comments;
+
+    $posts = Post::with('comments')->get();  //return all the posts with the comments assisoated with the posts.    return $posts;
+    // return $posts;
+    return view('welcome', compact('users', 'posts'));
 });

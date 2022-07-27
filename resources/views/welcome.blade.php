@@ -147,6 +147,8 @@
                 <h1 class="text-center my-3">
                     Eloquent Relationships
                 </h1>
+                <hr>
+                <h1 class="text-center my-5">One-to-One</h1>
                 <table class="table table-striped table-bordered table-hover table-responsive text-center">
                     <thead>
                         <tr>
@@ -159,6 +161,31 @@
                             <tr>
                                 <td>{{ $user->name }}</td>
                                 <td> {{ $user->phone->name }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+                <hr>
+                <h1 class="text-center my-5">One-to-Many</h1>
+                <table class="table table-striped table-bordered table-hover table-responsive text-center">
+                    <thead>
+                        <tr>
+                            <th>Post</th>
+                            <th>Comments</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($posts as $post)
+                            <tr>
+                                <td>{{ $post->title }}</td>
+                                {{-- <td> {{ $post->comments->message }}</td> --}}
+                                <td>
+                                    <ul>
+                                        @foreach ($post->comments as $comment)
+                                            <li>{{ $comment->message }}</li>
+                                        @endforeach
+                                    </ul>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
